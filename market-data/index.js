@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import UpstoxClient from "upstox-js-sdk";
 import { PORT } from "./utils/config.js";
+import stocksRouter from "./routes/stocks.routes.js";
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,8 @@ app.get("/getDataFromUpstox", (req, res) => {
   loginToUpstox();
   res.json({ message: "Succeeded" });
 });
+
+app.use("/stocks", stocksRouter);
 
 const loginToUpstox = () => {
   const apiInstance = new UpstoxClient.LoginApi();
