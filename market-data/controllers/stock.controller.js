@@ -2,6 +2,9 @@ import fs from "fs";
 import { parse } from "csv-parse";
 import { PrismaClient } from "@prisma/client";
 import { Client } from "@opensearch-project/opensearch";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const LoadStockData = async (req, res) => {
   const prisma = new PrismaClient();
@@ -33,8 +36,7 @@ const LoadStockData = async (req, res) => {
         console.log("Adding to OpenSearch");
 
         //sending data to opensearch
-        var host =
-          "https://avnadmin:AVNS_87Bvt0cAIgb480mdODj@os-3e758acd-swapnadeep456-6a0c.f.aivencloud.com:26695";
+        var host = process.env.OPEN_SEARCH;
         var client = new Client({
           node: host,
         });
