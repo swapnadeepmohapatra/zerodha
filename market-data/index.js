@@ -30,7 +30,7 @@ const loginToUpstox = () => {
   const apiInstance = new UpstoxClient.LoginApi();
   const apiVersion = "2.0";
   const opts = {
-    code: "m1wP_b",
+    code: "24tqn2",
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     redirectUri: process.env.REDIRECT_URI,
